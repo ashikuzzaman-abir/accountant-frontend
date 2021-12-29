@@ -1,0 +1,76 @@
+.pe-list-container{
+ width: 100%;
+ margin-top: 50px;
+}
+.pe-list-table{
+ max-width: 1300px;
+ margin: 0 auto;
+}
+.pe-list-headings{
+ display: flex;
+ font-size: 1.1em;
+ font-weight: 600;
+ background-color: rgba(255, 217, 0, 0.5);
+ border-radius: 25px 25px 0 0;
+ padding: 0 5px;
+}
+.pe-each-th{
+ width: 12.5%;
+ padding: 15px 5px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+}
+.pe-each-list{
+ display: flex;
+ flex-direction: row;
+ width: 100%;
+ padding: 0 5px;
+ /* justify-content: space-around; */
+}
+.pe-each-td{
+ width: 12.5%;
+ padding: 10px 5px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.pe-each-list:nth-child(even){
+ background-color: rgba(184, 182, 182, 0.267);
+
+}
+.pe-each-list:nth-child(odd){
+ background-color: rgba(136, 255, 239, 0.267);
+
+}
+.pe-each-list:last-child{
+ border-radius: 0 0 25px 25px;
+}
+.pe-option-td{
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+
+}
+.green-checkmark{
+ color: rgb(0, 175, 0);
+ width: 25px;
+ height: 25px;
+ cursor: pointer;
+ transition: all 0.2s ease-in-out;
+}
+.red-cross{
+ color: red;
+ width: 20px;
+ height: 20px;
+ cursor: pointer;
+ transition: all 0.2s ease-in-out;
+}
+
+.green-checkmark:hover{
+ transform: scale(1.2);
+}
+.red-cross:hover{
+ transform: scale(1.2);
+}

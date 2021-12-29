@@ -1,0 +1,227 @@
+.admin-nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* right: 0; */
+    /* display: flex; */
+    width: 280px;
+    background-color: #8ae9d6;
+    color: white;
+    font-size: 1.25em;
+    height: 100vh;
+    user-select: none;
+}
+.admin-nav-container > ul {
+    list-style: none;
+    width: 100%;
+}
+.admin-nav-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.admin-nav-container > ul > li {
+    margin: 10px 0;
+    padding: 15px 10px;
+    width: 100%;
+}
+.admin-logout-portion {
+    display: flex;
+    align-items: center;
+}
+.admin-nav-container > ul > li > a {
+    display: flex;
+    align-items: center;
+}
+.admin-nav-drop-down-head {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.admin-nav-icons {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    background: -webkit-linear-gradient(#eee, #333);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.admin-nav-container > ul > li:hover .admin-nav-icons {
+    transform: rotate(45deg);
+    transition: all 0.2s ease-in-out;
+}
+.admin-nav-ddmenu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 100%;
+}
+.dd-menu-childs {
+    margin-top: 5px;
+    width: 100%;
+}
+.dd-menu-childs > a {
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgb(158, 244, 255);
+    width: 100%;
+}
+.dd-hide {
+    display: none;
+}
+.dd-icon {
+    width: 25px;
+    height: 25px;
+}
+.admin-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.admin-switch-container {
+    width: calc(100vw - 280px);
+    position: relative;
+    padding: 0 15px 0 20px;
+}
+.backbutton-container {
+    position: absolute;
+    z-index: 1000;
+    top: 20px;
+    left: 262px;
+    color: white;
+    background-color: #333;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2 ease-in-out;
+}
+.backbutton-container:hover {
+    transform: scale(1.1);
+}
+
+.backbutton-container > * {
+    width: 25px;
+    height: 25px;
+}
+.dash-header-container {
+    /* background-color: #8ae9d6; */
+    padding: 0 10px;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dash-header-inner-container {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.dash-header-inner-container > h3 {
+    font-weight: 500;
+    color: rgb(82, 82, 82);
+}
+.dash-head-profile-icon {
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+    color: rgb(82, 82, 82);
+}
+.dash-page-heading {
+    display: flex;
+    align-items: center;
+}
+.dash-page-heading > h3 {
+    font-size: 1.75em;
+    font-weight: 500;
+    color: rgb(82, 82, 82);
+    user-select: none;
+}
+.dash-page-heading > h3 > span {
+    font-weight: 700;
+    color: #8ae9d6;
+}
+.entries-nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.entries-nav-container ul {
+    display: flex;
+    list-style: none;
+}
+
+.entries-nav-container ul li {
+    margin: 0 20px;
+    transition: all 0.2s ease-in-out;
+}
+.entries-nav-container > ul > li:hover {
+    margin: 0 35px;
+    /* margin: 0 10px; */
+    transform: scale(1.1);
+}
+
+.entries-nav-container ul li a {
+    text-decoration: none;
+}
+
+.entnav-button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 1.15em;
+    transition: all 0.2s ease-in-out;
+    background-color: rgba(150, 150, 150, 0.2);
+}
+.entnav-pending {
+    color: rgb(255, 145, 0);
+}
+.entnav-pending:hover {
+    background-color: rgba(255, 217, 0, 0.5);
+}
+.entnav-pending-active {
+    font-weight: 600;
+    background-color: rgba(255, 217, 0, 0.5);
+    outline: 3px solid rgba(255, 217, 0, 0.5);
+    outline-offset: 0.2rem;
+}
+
+.entnav-accepted {
+    color: rgb(0, 153, 0);
+}
+.entnav-accepted:hover {
+    background-color: rgba(0, 255, 0, 0.5);
+}
+.entnav-accepted-active {
+    font-weight: 600;
+    background-color: rgba(0, 255, 0, 0.5);
+    outline: 3px solid rgba(0, 255, 0, 0.5);
+    outline-offset: 0.2rem;
+}
+
+.entnav-rejected {
+    color: rgb(173, 0, 0);
+}
+.entnav-rejected:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+.entnav-rejected-active {
+    font-weight: 600;
+    background-color: rgba(255, 0, 0, 0.5);
+    outline: 3px solid rgba(255, 0, 0, 0.5);
+    outline-offset: 0.2rem;
+}
+
+.entnav-button:hover {
+    opacity: 0.8;
+}
+/* dummy */
+.txt-justify {
+    text-align: justify;
+}
+

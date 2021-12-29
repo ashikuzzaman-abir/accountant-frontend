@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./app.css";
+import Admin from "./pages/admin/Admin";
+import Login from "./pages/login/Login";
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useHistory,
+    useRouteMatch,
+} from "react-router-dom";
+import User from "./pages/user/User";
+import Error404 from "./pages/404/Error404";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { path } = useRouteMatch();
+    const [isLogin, setIsLogin] = useState(false);
+    const [userRole, setUserRole] = useState("");
+
+    return (
+        <Switch>
+            <Route exact path={["/", "/login"]}>
+                <Login />
+            </Route>
+            <Route path='/admin'>
+                <Admin />
+            </Route>
+            <Route path='/user'>
+                <User />
+            </Route>
+        </Switch>
+    );
 }
 
 export default App;

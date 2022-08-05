@@ -110,7 +110,13 @@ export default function AdminNav() {
                         Signup User
                     </Link>
                 </li>
-                
+                <li onClick={autoHideDd}>
+                    <Link to={`${url}/edituser`}>
+                        <ImMan className='admin-nav-icons' />
+                        Edit User
+                    </Link>
+                </li>
+
                 <li onClick={autoHideDd}>
                     <div
                         className='admin-logout-portion'

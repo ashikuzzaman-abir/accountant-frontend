@@ -13,6 +13,10 @@ export default function Stores() {
         `/admin/store/${storeId}`,
         "GET"
     );
+    const [entries, entLoading, entError, entOk] = useFetch(
+        `/admin/store/${storeId}/entries`,
+        "GET"
+    );
     const [employees, empLoading, empError, empOk] = useFetch(
         `/admin/store/${storeId}/employees`,
         "GET"
@@ -22,7 +26,7 @@ export default function Stores() {
             setDateNTime(dateConverter(data.regDate));
         }
     }, [data]);
-    // console.log(employees);
+    console.log(entries);
     return (
         <div className={"stores-container"}>
             <DashboardHeader
@@ -75,23 +79,80 @@ export default function Stores() {
                             </div>
                         </div>
                     </div>
+                    <div className='store-account-heading'>
+                        <h1>Entries</h1>
+                    </div>
+                    <div className='store-accounts-container'>
+                        <div className='store-account-list-heading'>
+                            <div className='store-account-each-list-section'>
+                                Entry ID
+                            </div>
+                            <div className='store-account-each-list-section'>
+                                User ID
+                            </div>
+                            <div className='store-account-each-list-section'>
+                                Amount
+                            </div>
+                            <div className='store-account-each-list-section'>
+                                Status
+                            </div>
+                        </div>
+                        {entries.message
+                            ? "no entries"
+                            : entries.map((entry, i) => {
+                                  return (
+                                      <div
+                                          key={i}
+                                          className='store-account-each-list'
+                                      >
+                                          <div className='store-account-each-list-section'>
+                                              {entry.entryId}
+                                          </div>
+                                          <div className='store-account-each-list-section'>
+                                              {entry.uId}
+                                          </div>
+                                          <div className='store-account-each-list-section'>
+                                              {entry.saleAmount}
+                                          </div>
+                                          {/* 'store-account-each-list-section' */}
+                                          <div
+                                              className={
+                                                  entry.status === "accepted"
+                                                      ? "store-account-each-list-section st-green"
+                                                      : entry.status ===
+                                                        "rejected"
+                                                      ? "store-account-each-list-section st-red"
+                                                      : entry.status ===
+                                                        "pending"
+                                                      ? "store-account-each-list-section st-yellow"
+                                                      : "store-account-each-list-section"
+                                              }
+                                          >
+                                              {entry.status}
+                                          </div>
+                                      </div>
+                                  );
+                              })}
+                    </div>
                 </div>
                 <div className='store-body-right'>
                     <h1>Employees</h1>
                     <div className='store-emplst-container'>
-                        {employees.message ? "Currently there are no employees assigned" : employees.map((emp, i) => {
-                            return (
-                                <div key={i} className='each-emplst'>
-                                    <div className='emplst-firstline'>
-                                        <h2>{emp.name}</h2>
-                                        <p>{emp.userName}</p>
-                                    </div>
-                                    <div className="emplst-lastline">
-                                        <p>{emp.role}</p>
-                                    </div>
-                                </div>
-                            );
-                        })}
+                        {employees.message
+                            ? "Currently there are no employees assigned"
+                            : employees.map((emp, i) => {
+                                  return (
+                                      <div key={i} className='each-emplst'>
+                                          <div className='emplst-firstline'>
+                                              <h2>{emp.name}</h2>
+                                              <p>{emp.userName}</p>
+                                          </div>
+                                          <div className='emplst-lastline'>
+                                              <p>{emp.role}</p>
+                                          </div>
+                                      </div>
+                                  );
+                              })}
                     </div>
                 </div>
             </div>

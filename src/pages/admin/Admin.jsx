@@ -5,6 +5,7 @@ import AddStore from "../../components/addStore/AddStore";
 import AdminDashboard from "../../components/adminDashboard/AdminDashboard";
 import AdminNav from "../../components/adminNav/AdminNav";
 import BackButton from "../../components/backButton/BackButton";
+import EditUser from "../../components/editUser/EditUser";
 import Entries from "../../components/entries/Entries";
 import SignupUser from "../../components/signupUser/SignupUser";
 import Stores from "../../components/stores/Stores";
@@ -17,16 +18,16 @@ export default function Admin() {
     useEffect(() => {
         //route security
         if (!localStorage.getItem("token")) {
-            History.push("/login");
+            return History.push("/login");
         }
         if (!localStorage.getItem("userData")) {
-            History.push("/login");
+            return History.push("/login");
         }
         if (localStorage.getItem("userData")) {
             if (JSON.parse(localStorage.getItem("userData")).role !== "admin") {
                 localStorage.removeItem("token");
                 localStorage.removeItem("userData");
-                History.push("/login");
+                return History.push("/login");
             }
             if (
                 JSON.parse(localStorage.getItem("userData")).exp <
@@ -34,7 +35,7 @@ export default function Admin() {
             ) {
                 localStorage.removeItem("token");
                 localStorage.removeItem("userData");
-                History.push("/login");
+                return History.push("/login");
             }
         }
     }, []);
@@ -52,13 +53,16 @@ export default function Admin() {
                         <Entries />
                     </Route>
                     <Route path={`${path}/signupuser`}>
-                        <SignupUser/>
+                        <SignupUser />
                     </Route>
                     <Route path={`${path}/stores/:storeId`}>
                         <Stores />
                     </Route>
                     <Route path={`${path}/addstore`}>
-                        <AddStore/>
+                        <AddStore />
+                    </Route>
+                    <Route path={`${path}/edituser`}>
+                        <EditUser />
                     </Route>
                 </div>
             </Switch>
